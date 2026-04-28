@@ -1,4 +1,7 @@
+"./Src/fpu.o"
 "./Src/main.o"
+"./Src/stm32f446re_it.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
+"./Src/usart.o"
 "./Startup/startup_stm32f446retx.o"

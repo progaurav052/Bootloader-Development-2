@@ -1,0 +1,47 @@
+/*
+ * usart.c
+ *
+ *  Created on: Apr 29, 2026
+ *      Author: ggpai
+ */
+
+
+#include "usart.h"
+
+// we will use USART2 to connect to PC , VCOM support is present already
+
+
+void usart2_init()
+{
+	//enable the peripheral clock
+	RCC->APB1ENR |= ( 1<<17 );
+
+	//2. configure the GPIO pins for USART_TX and USART_RX
+	    // in our board USART2 peripheral provide virtual com support
+	    // GPIO PA 2-TX , PA3-RX
+		//First clear the bits
+
+	// Before this enable the clock for GPIOA peripheral
+	RCC->AHB1ENR &= ~(RCC_AHB1ENR_GPIOAEN);
+	RCC->AHB1ENR |=  RCC_AHB1ENR_GPIOAEN;
+
+
+	GPIOA->MODER &=~(0x3 << 4);
+	GPIOA->MODER &=~(0x3 << 6);
+
+	// configuring the alternate function
+	GPIOA->MODER |=(0x2 << 4);
+	GPIOA->MODER |=(0x2 << 6);
+
+	//configure the AFRL / AFRH register accordingly
+	//clear and set the AF7
+	GPIOA->AFR[0] &= ~(0xF << 8);
+	GPIOA->AFR[0] &= ~(0xF << 12);
+
+	GPIOA->AFR[0] |= (0x7 << 8);
+	GPIOA->AFR[0] |= (0x7 << 12);
+
+	//o/p type is push pull by default
+
+	//pu-pd setting -> enbale PUPD , TX and RX line are high
+}
