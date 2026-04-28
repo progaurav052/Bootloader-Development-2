@@ -1,0 +1,20 @@
+23:13:23 **** Build of configuration Debug for project Bootloader_BM ****
+make -j10 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -DSTM32F446xx -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include" -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include" -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include" -I"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/CMSIS_CORE/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "Bootloader_BM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/ggpai/Desktop/Bootloader Development-2/Boorloader_BM/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Bootloader_BM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bootloader_BM.elf
+ 
+arm-none-eabi-size  Bootloader_BM.elf 
+arm-none-eabi-objdump -h -S Bootloader_BM.elf  > "Bootloader_BM.list"
+   text	   data	    bss	    dec	    hex	filename
+    712	      0	   1568	   2280	    8e8	Bootloader_BM.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bootloader_BM.list
+ 
+
+23:13:27 Build Finished. 0 errors, 0 warnings. (took 3s.746ms)
+
