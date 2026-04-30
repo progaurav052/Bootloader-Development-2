@@ -10,6 +10,7 @@ C_SRCS += \
 ../Src/stm32f446re_it.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c \
+../Src/timebase.c \
 ../Src/usart.c 
 
 OBJS += \
@@ -18,6 +19,7 @@ OBJS += \
 ./Src/stm32f446re_it.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o \
+./Src/timebase.o \
 ./Src/usart.o 
 
 C_DEPS += \
@@ -26,6 +28,7 @@ C_DEPS += \
 ./Src/stm32f446re_it.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d \
+./Src/timebase.d \
 ./Src/usart.d 
 
 
@@ -36,7 +39,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/fpu.cyclo ./Src/fpu.d ./Src/fpu.o ./Src/fpu.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/stm32f446re_it.cyclo ./Src/stm32f446re_it.d ./Src/stm32f446re_it.o ./Src/stm32f446re_it.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/usart.cyclo ./Src/usart.d ./Src/usart.o ./Src/usart.su
+	-$(RM) ./Src/fpu.cyclo ./Src/fpu.d ./Src/fpu.o ./Src/fpu.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/stm32f446re_it.cyclo ./Src/stm32f446re_it.d ./Src/stm32f446re_it.o ./Src/stm32f446re_it.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/timebase.cyclo ./Src/timebase.d ./Src/timebase.o ./Src/timebase.su ./Src/usart.cyclo ./Src/usart.d ./Src/usart.o ./Src/usart.su
 
 .PHONY: clean-Src
 

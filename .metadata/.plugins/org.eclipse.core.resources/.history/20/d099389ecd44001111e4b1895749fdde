@@ -1,0 +1,42 @@
+/*
+ * timebase.c
+ *
+ *  Created on: Apr 30, 2026
+ *      Author: ggpai
+ */
+
+#include "timebase.h"
+
+
+void timebase_init(){
+	__disable_irq();
+
+	SysTick->LOAD=NUMBER_OF_CYCLES_SEC-1;
+
+	SysTick->VAL=0; // current value register as 0
+	SysTick->CTRL=CTRL_CLCKSRC; // internal clock source
+	SysTick->CTRL |=CTRL_TICKINT; // enable interrupt
+	SysTick->CTRL |=CTRL_ENABLE; // enable the systick timer
+	// over here we have configured interrupt to generate interrupt
+	__enable_irq();
+
+
+}
+
+void tick_increement()
+{
+	__disable_irq();
+	get_current_tick+= TICK_FREQ;
+	__enable_irq();
+}
+uint32_t get_ticks()
+{
+	return get_current_tick;
+
+}
+void delay(uint32_t x)
+{
+	uint32_t curr_tick=get_ticks();
+
+	while (get_ticks() < curr_tick+x);
+}

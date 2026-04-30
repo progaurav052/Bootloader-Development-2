@@ -38,27 +38,41 @@
 /* the native ST bootloader stored in system memory (ROM) interacts with user / outside over USARt3 and USARt1*/
 /* short the boot pin (boot0 as high by connecting to VDD) , enable the bootloader , than load the firmware -> for this we need USB to UART dongle*/
 
-#include "stm32f4xx.h"
-#include "stm32f446xx.h"
+
 #include "fpu.h"
 #include "usart.h"
+#include "timebase.h"
 
 char *msg="Testing USART2 transmit, VCOM.\r\n";
-
+volatile uint32_t get_current_tick = 0; // using volatile for ISR shared variable
 
 // note : on reset the 16Mhz internal RC oscillator is selected as default CPU clock
 int main()
 {
+
 	fpu_enable(); // enbales the floating point unit
 
 	usart2_init(); // enable the usart2
 
+	timebase_init();
+
 	while(1)
 	{
+		// we want a delay of 5 sec
+		// use timers for this , we have implemented systick timer to get 1 tick per seconds
 		usart2_transmit(USART2, (uint8_t*)msg, strlen(msg));
+		delay(5);
+
+
+
 	}
 
 
 	return 0;
 
+}
+
+void SysTick_Handler()
+{
+	tick_increement();
 }

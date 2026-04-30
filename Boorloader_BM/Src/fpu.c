@@ -6,7 +6,7 @@
  */
 
 #include "fpu.h"
-#include "stm32f4xx.h"
+
 
 
 void fpu_enable()
