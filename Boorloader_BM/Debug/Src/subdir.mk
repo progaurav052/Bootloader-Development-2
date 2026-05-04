@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/bsp.c \
 ../Src/fpu.c \
 ../Src/main.c \
 ../Src/stm32f446re_it.c \
@@ -14,6 +15,7 @@ C_SRCS += \
 ../Src/usart.c 
 
 OBJS += \
+./Src/bsp.o \
 ./Src/fpu.o \
 ./Src/main.o \
 ./Src/stm32f446re_it.o \
@@ -23,6 +25,7 @@ OBJS += \
 ./Src/usart.o 
 
 C_DEPS += \
+./Src/bsp.d \
 ./Src/fpu.d \
 ./Src/main.d \
 ./Src/stm32f446re_it.d \
@@ -39,7 +42,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/fpu.cyclo ./Src/fpu.d ./Src/fpu.o ./Src/fpu.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/stm32f446re_it.cyclo ./Src/stm32f446re_it.d ./Src/stm32f446re_it.o ./Src/stm32f446re_it.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/timebase.cyclo ./Src/timebase.d ./Src/timebase.o ./Src/timebase.su ./Src/usart.cyclo ./Src/usart.d ./Src/usart.o ./Src/usart.su
+	-$(RM) ./Src/bsp.cyclo ./Src/bsp.d ./Src/bsp.o ./Src/bsp.su ./Src/fpu.cyclo ./Src/fpu.d ./Src/fpu.o ./Src/fpu.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/stm32f446re_it.cyclo ./Src/stm32f446re_it.d ./Src/stm32f446re_it.o ./Src/stm32f446re_it.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/timebase.cyclo ./Src/timebase.d ./Src/timebase.o ./Src/timebase.su ./Src/usart.cyclo ./Src/usart.d ./Src/usart.o ./Src/usart.su
 
 .PHONY: clean-Src
 

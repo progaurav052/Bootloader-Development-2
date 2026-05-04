@@ -7,7 +7,7 @@ Src/main.o: ../Src/main.c ../Inc/fpu.h \
  /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Include/cmsis_gcc.h \
  /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Include/mpu_armv7.h \
  /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- ../Inc/usart.h ../Inc/timebase.h
+ ../Inc/usart.h ../Inc/timebase.h ../Inc/bsp.h
 ../Inc/fpu.h:
 /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include/stm32f446xx.h:
@@ -19,3 +19,4 @@ Src/main.o: ../Src/main.c ../Inc/fpu.h \
 /Users/ggpai/Desktop/Bootloader\ Development-2/Boorloader_BM/CMSIS_CORE/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
 ../Inc/usart.h:
 ../Inc/timebase.h:
+../Inc/bsp.h:

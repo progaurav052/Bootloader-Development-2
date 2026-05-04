@@ -1,0 +1,51 @@
+/*
+ * bsp.c
+ *
+ *  Created on: May 4, 2026
+ *      Author: ggpai
+ */
+
+#include "bsp.h"
+
+void led_init(){
+	//led works on PA5 , set the peripheral clock
+	//clear and set
+	RCC->AHB1ENR &= ~(0x1 << 0);
+	RCC->AHB1ENR |= (0x1 << 0);
+	// set as output mode
+	//clear and set
+	GPIOA->MODER &=~(0x3 << 10);
+	GPIOA->MODER |=(0x1 << 10);
+
+
+}
+void led_on(){
+	//led on PA5 - high , clear and set it
+	GPIOA->ODR &=~(0x1 << 5);
+	GPIOA->ODR |=(0x1 << 5);
+}
+void led_off(){
+	//led off PA5 - low
+	GPIOA->ODR &= ~(0x1 << 5);
+
+}
+
+void user_button_init(){
+	// button works on PC-13
+	RCC->AHB1ENR &= ~(0x1 << 2);
+	RCC->AHB1ENR |= (0x1 << 2);
+
+	// set as input mode , we will read from the button pin to measure if high or low
+	GPIOC->MODER &=~(0x3 << 26);
+
+}
+
+uint8_t user_button_read_input_pin(uint8_t pin)
+{
+	// pin number will be 13 on Port C
+	//check if btn is pressed
+
+	uint8_t btn_status;
+	btn_status = (uint8_t)((GPIOC->IDR >> 13)&(0x1));
+
+}

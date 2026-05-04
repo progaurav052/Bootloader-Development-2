@@ -1,0 +1,5 @@
+../Src/bsp.c:10:6:led_init	1
+../Src/bsp.c:22:6:led_on	1
+../Src/bsp.c:27:6:led_off	1
+../Src/bsp.c:33:6:user_button_init	1
+../Src/bsp.c:43:9:user_button_read_input_pin	1

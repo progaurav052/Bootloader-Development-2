@@ -42,6 +42,10 @@
 #include "fpu.h"
 #include "usart.h"
 #include "timebase.h"
+#include "bsp.h"
+
+#define LOW 		0
+#define HIGH 		1
 
 char *msg="Testing USART2 transmit, VCOM.\r\n";
 volatile uint32_t get_current_tick = 0; // using volatile for ISR shared variable
@@ -56,12 +60,21 @@ int main()
 
 	timebase_init();
 
+	led_init();
+
+	user_button_init();
+
 	while(1)
 	{
 		// we want a delay of 5 sec
 		// use timers for this , we have implemented systick timer to get 1 tick per seconds
-		usart2_transmit(USART2, (uint8_t*)msg, strlen(msg));
-		delay(5);
+		//usart2_transmit(USART2, (uint8_t*)msg, strlen(msg));
+		//delay(5);
+		if(user_button_read_input_pin(13)==LOW)
+		{
+			//button is  pressed
+			led_on();
+		}
 
 
 

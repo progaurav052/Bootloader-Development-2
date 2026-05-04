@@ -1,3 +1,4 @@
+"./Src/bsp.o"
 "./Src/fpu.o"
 "./Src/main.o"
 "./Src/stm32f446re_it.o"

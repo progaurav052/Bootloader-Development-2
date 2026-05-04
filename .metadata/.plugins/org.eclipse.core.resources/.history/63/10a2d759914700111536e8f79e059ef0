@@ -1,0 +1,26 @@
+/*
+ * bsp.c
+ *
+ *  Created on: May 4, 2026
+ *      Author: ggpai
+ */
+
+#include "bsp.h"
+
+void led_init(){
+	//led works on PA5
+	// set as output mode
+}
+void led_on(){
+	//led on PA5 - high
+}
+void led_off(){
+	//led off PA5 - low
+
+}
+
+void button_init(){
+	// button works on PC-13
+	// set as input mode , we will read from the button pin to measure if high or low
+	//
+}
